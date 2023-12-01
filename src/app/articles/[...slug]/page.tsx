@@ -21,7 +21,6 @@ export async function generateStaticParams() {
   const slugs = posts.map((post) => ({
     slug: post.filePath.split("/"),
   }));
-  console.log("articles", slugs);
   return slugs;
 }
 

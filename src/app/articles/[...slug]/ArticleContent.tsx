@@ -2,6 +2,7 @@
 import Markdown from "@/components/Markdown";
 import { Article } from "@/types";
 import { Folder } from "lucide-react";
+import { ClockIcon, CounterClockwiseClockIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
 // import Image from "next/image";
 import { basePath } from "../../../../next.config";
@@ -16,6 +17,7 @@ export default function ArticleContent({
   slug: string;
 }) {
   const formattedDate = formatDate(article.createdAt);
+  const updatedAt = formatDate(article.updatedAt);
   const tags = article.tags || [];
   const categories = article.categories || [];
   return (
@@ -25,9 +27,18 @@ export default function ArticleContent({
         <h1>{article.title}</h1>
       </div> */}
         <div className="flex items-center gap-x-4 mb-2">
+          <span className="flex items-center gap-x-1">
+            <ClockIcon />
             <time dateTime={formattedDate} className="text-gray-500">
               {formattedDate}
             </time>
+          </span>
+          <span className="flex items-center gap-x-1">
+            <CounterClockwiseClockIcon />
+            <time dateTime={updatedAt} className="text-gray-500">
+              {updatedAt}
+            </time>
+          </span>
           <div>
             {categories.map((category) => (
               <NextLink key={category} href={`/categories/${category}`}>
