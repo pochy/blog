@@ -60,11 +60,6 @@ export function getAllPosts() {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
-    console.log(
-      " getAllPosts",
-      filePath.replace(/\.md$/, "").replace(postsDirectory, "")
-    );
-
     const article: Article = {
       id: id,
       filePath: filePath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
