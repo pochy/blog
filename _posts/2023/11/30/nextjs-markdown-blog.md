@@ -17,7 +17,7 @@ ogImage:
   url: /assets/blog/nextjs-markdown-blog.png
 keywords:
   - Next.js
-slug: 2023-11-25-nextjs-markdown-blog
+slug: nextjs-markdown-blog
 ---
 
 # Next.js で Markdown を使用したブログを作成

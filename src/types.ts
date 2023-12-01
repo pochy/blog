@@ -18,7 +18,8 @@ export type Post = {
 };
 
 export type Article = Post & {
-  id: number;
+  filePath: string;
+  id: string;
   content: string;
 };
 

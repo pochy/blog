@@ -85,8 +85,9 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
-      "previewPath": "/_posts",
-      "path": "[[workspace]]/_posts"
+      "filePrefix": null,
+      "previewPath": "/articles/{{year}}/{{month}}/{{day}}",
+      "path": "[[workspace]]/_posts/{{year}}/{{month}}/{{day}}"
     }
   ]
 }

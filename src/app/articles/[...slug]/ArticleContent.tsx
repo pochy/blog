@@ -25,9 +25,9 @@ export default function ArticleContent({
         <h1>{article.title}</h1>
       </div> */}
         <div className="flex items-center gap-x-4 mb-2">
-          <time dateTime={formattedDate} className="text-gray-500">
-            {formattedDate}
-          </time>
+            <time dateTime={formattedDate} className="text-gray-500">
+              {formattedDate}
+            </time>
           <div>
             {categories.map((category) => (
               <NextLink key={category} href={`/categories/${category}`}>

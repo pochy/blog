@@ -13,14 +13,40 @@ export function getPosts() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostById(id: string) {
-  const realId = id.replace(/\.md$/, "");
-  const fullPath = path.join(postsDirectory, realId, "index.md");
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+export function getPostFilePaths(
+  dir = postsDirectory,
+  filePaths: string[] = []
+) {
+  const files = fs.readdirSync(dir);
 
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      getPostFilePaths(filePath, filePaths);
+    } else if (stat.isFile() && /\.md$/.test(filePath)) {
+      filePaths.push(filePath);
+    }
+  });
+
+  return filePaths;
+}
+
+export function getPostById(id: string) {
+  const postFilePaths = getPostFilePaths();
+  const postPath = postFilePaths.find((filePath) => filePath.includes(id));
+
+  if (!postPath) {
+    throw new Error(`Post with id ${id} not found`);
+  }
+
+  const fileContents = fs.readFileSync(postPath, "utf8");
   const { data, content } = matter(fileContents);
+
   const article: Article = {
-    id: Number(id),
+    id: id,
+    filePath: postPath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
     content,
     ...(data as Post),
   };
@@ -28,14 +54,20 @@ export function getPostById(id: string) {
 }
 
 export function getAllPosts() {
-  const fileNames = getPosts();
-  const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName, "index.md");
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  const postFilePaths = getPostFilePaths();
+  const allPostsData = postFilePaths.map((filePath) => {
+    const id = path.basename(filePath, ".md");
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
+
+    console.log(
+      " getAllPosts",
+      filePath.replace(/\.md$/, "").replace(postsDirectory, "")
+    );
+
     const article: Article = {
-      id: Number(id),
+      id: id,
+      filePath: filePath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
       content,
       ...(data as Post),
     };

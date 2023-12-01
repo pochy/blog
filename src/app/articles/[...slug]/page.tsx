@@ -6,11 +6,10 @@ import { getAllPosts, getPostById } from "@/utils/posts";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }): Promise<Metadata> {
-  const article = getPostById(
-    typeof params.slug === "string" ? params.slug : ""
-  );
+  const slug = params.slug.join("/");
+  const article = getPostById(slug);
   return {
     title: article?.title,
     description: article?.content,
@@ -20,22 +19,22 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const posts = getAllPosts();
   const slugs = posts.map((post) => ({
-    slug: post.slug,
+    slug: post.filePath.split("/"),
   }));
+  console.log("articles", slugs);
   return slugs;
 }
 
 export default async function ArticleDetail({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
-  const article = getPostById(
-    typeof params.slug === "string" ? params.slug : ""
-  );
+  const slug = params.slug.join("/");
+  const article = getPostById(slug);
   if (!article) {
     notFound();
   }
 
-  return <ArticleContent article={article} slug={params.slug} />;
+  return <ArticleContent article={article} slug={slug} />;
 }
