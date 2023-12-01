@@ -5,6 +5,7 @@ import { Folder } from "lucide-react";
 import NextLink from "next/link";
 // import Image from "next/image";
 import { basePath } from "../../../../next.config";
+import { formatDate } from "@/utils/dateUtils";
 const BASE_PATH = basePath ? basePath : "";
 
 export default function ArticleContent({
@@ -14,14 +15,7 @@ export default function ArticleContent({
   article: Article;
   slug: string;
 }) {
-  const formattedDate = new Date(article.createdAt).toLocaleDateString(
-    "ja-JP",
-    {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }
-  );
+  const formattedDate = formatDate(article.createdAt);
   const tags = article.tags || [];
   const categories = article.categories || [];
   return (
