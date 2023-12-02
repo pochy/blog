@@ -12,8 +12,11 @@ const PostImage =
     }
     // console.log("Post Image", src, slug);
     try {
+      // const imgsrc =
+      //   "../../../_posts/" + slug.split("/").slice(0, -1).join("/") + "/" + src;
+      // console.log("Image", imgsrc);
       const image: ImageProps = require("../../../_posts/" +
-        slug +
+        slug.split("/").slice(0, -1).join("/") +
         "/" +
         src).default;
       // console.log("Image", image);

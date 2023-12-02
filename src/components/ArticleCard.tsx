@@ -68,7 +68,7 @@ export default function ArticleCard({ article }: { article: Article }) {
         </h3>
 
         <div className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-          <Markdown slug={article.slug}>{article.description}</Markdown>
+          <Markdown filePath={article.filePath}>{article.description}</Markdown>
         </div>
       </div>
     </article>

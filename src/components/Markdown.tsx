@@ -33,12 +33,12 @@ SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("css", css);
 
 type MarkdownProps = {
-  slug: string;
+  filePath: string;
   children?: string | null | undefined;
   // children: React.ReactNode;
 };
 
-const Markdown: FC<MarkdownProps> = ({ slug, children }) => {
+const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
   const Pre = ({
     children,
     ...props
@@ -113,7 +113,7 @@ const Markdown: FC<MarkdownProps> = ({ slug, children }) => {
       className="prose prose-sky mx-auto max-w-4xl"
       components={{
         pre: Pre,
-        img: PostImage(slug),
+        img: PostImage(filePath),
       }}
       remarkPlugins={[remarkGfm, remarkMath, remarkEmoji, remarkToc]}
       rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeKatex, rehypeSlug]}

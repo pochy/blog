@@ -72,7 +72,7 @@ export default function ArticleContent({
             style={{ width: "fit-content" }}
           />
         </div>
-        <Markdown slug={slug}>{article.content}</Markdown>
+        <Markdown filePath={article.filePath}>{article.content}</Markdown>
       </article>
     </div>
   );
