@@ -9,6 +9,9 @@ import markdown from "react-syntax-highlighter/dist/cjs/languages/prism/markdown
 import go from "react-syntax-highlighter/dist/cjs/languages/prism/go";
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
+import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
+import shell from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
+import schema from "react-syntax-highlighter/dist/cjs/languages/prism/scheme";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -31,6 +34,10 @@ SyntaxHighlighter.registerLanguage("go", go);
 SyntaxHighlighter.registerLanguage("golang", go);
 SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("css", css);
+SyntaxHighlighter.registerLanguage("sh", bash);
+SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("shell", shell);
+SyntaxHighlighter.registerLanguage("schema", schema);
 
 type MarkdownProps = {
   filePath: string;
