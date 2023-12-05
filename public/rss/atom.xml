@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://www.haxibami.net</id>
-    <title>kinaco</title>
-    <updated>2023-11-29T17:46:22.735Z</updated>
+    <id>https://www.kinacoo.com/blog</id>
+    <title>kinacoo</title>
+    <updated>2023-12-05T15:04:52.567Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
-        <name>haxibami</name>
-        <email>contact@haxibami.net</email>
-        <uri>https://www.haxibami.net</uri>
+        <name>kenta nakajima</name>
+        <email>dummy@dummy.net</email>
+        <uri>https://www.kinacoo.com/blog</uri>
     </author>
-    <link rel="alternate" href="https://www.haxibami.net"/>
-    <link rel="self" href="https://www.haxibami.net/rss/atom.xml"/>
-    <subtitle>AAA</subtitle>
-    <logo>https://www.haxibami.net/kripcat.jpg</logo>
-    <icon>https://www.haxibami.net/favicon.ico</icon>
-    <rights>All rights reserved 2023, haxibami</rights>
+    <link rel="alternate" href="https://www.kinacoo.com/blog"/>
+    <link rel="self" href="https://www.kinacoo.com/blog/rss/atom.xml"/>
+    <subtitle>dev blog</subtitle>
+    <icon>https://www.kinacoo.com/blog/favicon.ico</icon>
+    <rights>All rights reserved 2023, kenta nakajima</rights>
+    <entry>
+        <title type="html"><![CDATA[Next.js で Server Actions を試してみる]]></title>
+        <id>https://www.kinacoo.com/blog/articles/nextjs-server-actions</id>
+        <link href="https://www.kinacoo.com/blog/articles/nextjs-server-actions"/>
+        <updated>2023-12-02T02:42:28.213Z</updated>
+        <summary type="html"><![CDATA[Next.js 14 で安定版になった Server Actions を試してみました。]]></summary>
+        <category label="develop"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Next.js で Markdown を使用したブログを作成]]></title>
-        <id>https://www.haxibami.net/articles/2023-11-25-nextjs-markdown-blog</id>
-        <link href="https://www.haxibami.net/articles/2023-11-25-nextjs-markdown-blog"/>
+        <id>https://www.kinacoo.com/blog/articles/nextjs-markdown-blog</id>
+        <link href="https://www.kinacoo.com/blog/articles/nextjs-markdown-blog"/>
         <updated>2023-11-30T00:00:45.855Z</updated>
         <summary type="html"><![CDATA[Next.js で Markdown を使用したブログを作成を作成しました。]]></summary>
         <category label="develop"/>

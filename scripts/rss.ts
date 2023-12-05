@@ -4,19 +4,19 @@ import { Feed } from "feed";
 import { slicedAllPosts } from "../src/utils/posts";
 
 // variables
-const HOST = "https://www.haxibami.net";
+const HOST = "https://www.kinacoo.com/blog";
 
 const SITEDATA = {
   blog: {
-    title: "kinaco",
-    description: "AAA",
+    title: "kinacoo",
+    description: "dev blog",
   },
 };
 
 const feedGenerator = async () => {
   const author = {
-    name: "haxibami",
-    email: "contact@haxibami.net",
+    name: "kenta nakajima",
+    email: "dummy@dummy.net",
     link: HOST,
   };
 
@@ -27,7 +27,6 @@ const feedGenerator = async () => {
     id: HOST,
     link: HOST,
     language: "ja",
-    image: `${HOST}/kripcat.jpg`,
     favicon: `${HOST}/favicon.ico`,
     copyright: `All rights reserved ${date.getFullYear()}, ${author.name}`,
     updated: date,
