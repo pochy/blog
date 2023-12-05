@@ -2,10 +2,11 @@
 import { Article } from "@/types";
 import NextLink from "next/link";
 import Markdown from "./Markdown";
-import { Folder } from "lucide-react";
 import { basePath } from "../../next.config";
 import { ClockIcon, CounterClockwiseClockIcon } from "@radix-ui/react-icons";
 import { formatDate } from "@/utils/dateUtils";
+import Tag from "@/components/ui/tag";
+import Category from "./ui/category";
 const BASE_PATH = basePath ? basePath : "";
 
 export default function ArticleCard({ article }: { article: Article }) {
@@ -30,27 +31,13 @@ export default function ArticleCard({ article }: { article: Article }) {
         </span>
         <div>
           {categories.map((category) => (
-            <NextLink key={category} href={`/categories/${category}`}>
-              <span
-                key={category}
-                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-              >
-                <Folder className="inline h-4 w-4" /> {category}
-              </span>
-            </NextLink>
+            <Category key={category} category={category} />
           ))}
         </div>
       </div>
       <div className="mb-4">
         {tags.map((tag) => (
-          <NextLink key={tag} href={`/tags/${tag}`}>
-            <span
-              key={tag}
-              className="relative z-10 text-xs rounded-full bg-gray-50 px-3 py-1.5 ml-2 font-medium text-gray-600 hover:bg-gray-100 border-neutral-300 border-2"
-            >
-              # {tag}
-            </span>
-          </NextLink>
+          <Tag key={tag} tag={tag} />
         ))}
       </div>
       <div className="group relative">

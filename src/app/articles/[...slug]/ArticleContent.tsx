@@ -1,17 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
 import { Article } from "@/types";
-import { Folder } from "lucide-react";
 import { ClockIcon, CounterClockwiseClockIcon } from "@radix-ui/react-icons";
-import NextLink from "next/link";
-// import Image from "next/image";
 import { basePath } from "../../../../next.config";
 import { formatDate } from "@/utils/dateUtils";
+import Tag from "@/components/ui/tag";
+import Category from "@/components/ui/category";
 const BASE_PATH = basePath ? basePath : "";
 
 export default function ArticleContent({
   article,
-  slug,
 }: {
   article: Article;
   slug: string;
@@ -23,9 +21,6 @@ export default function ArticleContent({
   return (
     <div className="container mt-10 pb-10 mx-auto px-0 sm:px-4 max-w-4xl">
       <article className="mx-auto p-4 bg-white rounded-lg">
-        {/* <div>
-        <h1>{article.title}</h1>
-      </div> */}
         <div className="flex items-center gap-x-4 mb-2">
           <span className="flex items-center gap-x-1">
             <ClockIcon />
@@ -41,30 +36,16 @@ export default function ArticleContent({
           </span>
           <div>
             {categories.map((category) => (
-              <NextLink key={category} href={`/categories/${category}`}>
-                <span
-                  key={category}
-                  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                >
-                  <Folder className="inline h-4 w-4" /> {category}
-                </span>
-              </NextLink>
+              <Category key={category} category={category} />
             ))}
           </div>
         </div>
         <div className="mb-4">
           {tags.map((tag) => (
-            <NextLink key={tag} href={`/tags/${tag}`}>
-              <span
-                key={tag}
-                className="relative z-10 text-xs rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-              >
-                # {tag}
-              </span>
-            </NextLink>
+            <Tag key={tag} tag={tag} />
           ))}
         </div>
-        <div className="my-10">
+        <div>
           <img
             className="rounded-lg"
             src={`${BASE_PATH}${article.coverImage}`}
@@ -72,7 +53,9 @@ export default function ArticleContent({
             style={{ width: "fit-content" }}
           />
         </div>
-        <Markdown filePath={article.filePath}>{article.content}</Markdown>
+        <div className="mt-5 text-gray-600">
+          <Markdown filePath={article.filePath}>{article.content}</Markdown>
+        </div>
       </article>
     </div>
   );
