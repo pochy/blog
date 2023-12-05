@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <div className="flex mb-4">
             <Image
-              src="/assets/authors/profile_m.png"
+              src={`${BASE_PATH}/assets/authors/profile_m.png`}
               width={75}
               height={75}
               alt="profile"
