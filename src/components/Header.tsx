@@ -6,7 +6,9 @@ export default function Header() {
       <div className="max-w-4xl mx-auto flex justify-between items-center mt-5 px-4">
         <ul className="flex">
           <li className="pr-2">
-            <Link href="/">トップ</Link>
+            <Link className="font-bold text-2xl" href="/">
+              KINACOO
+            </Link>
           </li>
         </ul>
         <ul className="flex">
