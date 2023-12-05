@@ -12,9 +12,9 @@ export default function Header() {
           </li>
         </ul>
         <ul className="flex">
-          <li className="pr-2">
+          {/* <li className="pr-2">
             <Link href="/categories">カテゴリ</Link>
-          </li>
+          </li> */}
           <li className="pr-2">
             <Link href="/tags">タグ</Link>
           </li>

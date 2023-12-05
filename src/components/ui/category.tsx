@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import { Folder } from "lucide-react";
 
 export default function Category({ category }: { category: string }) {
+  return <></>;
   return (
     <NextLink key={category} href={`/categories/${category}`}>
       <span
