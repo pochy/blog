@@ -1,7 +1,7 @@
 ---
 title: Next.js で Markdown を使用したブログを作成
 createdAt: 2023-11-30T00:00:45.855
-updatedAt: 2023-11-30T00:00:46.388
+updatedAt: 2023-12-05T23:13:18.250
 description: Next.js で Markdown を使用したブログを作成を作成しました。
 coverImage: /assets/blog/nextjs-markdown-blog.png
 draft: true
@@ -22,9 +22,13 @@ slug: nextjs-markdown-blog
 
 # Next.js で Markdown を使用したブログを作成
 
-こんにちは！これは私の新しいブログの最初の投稿です。
+こんにちは！インプットした内容をまとめるためにブログを始めました。
 
-Next.js、TypeScript、そしていくつかの素晴らしいライブラリを使って Markdown を活用したブログを作成しました。
+Next.js、TypeScript、そしていくつかのライブラリを使って Markdown を活用したブログを作成しました。
+Github Pagesでホストしてカスタムドメインを割り当てています。
+
+実際のソースコードはこちらです。
+https://github.com/pochy/blog
 
 ## 使用技術
 
@@ -86,6 +90,6 @@ Next.js、TypeScript、そしていくつかの素晴らしいライブラリを
 
 ## まとめ
 
-このブログの作成は、Next.jsとこれらのライブラリを使って、技術的な知識を深める素晴らしい経験でした。デザインライブラリのRadix UI、Tailwind CSS、shadcn/uiの組み合わせは、見た目も機能も優れたインターフェースを提供します。
+このブログの作成は Next.js と TypeScript と、Markdownに関するライブラリを使って技術的な知識を深める素晴らしい経験でした。デザインライブラリの Radix UI、Tailwind CSS、shadcn/ui の組み合わせは、とても心地よくこれからも積極的に採用していきたいと思います。
 
 また、Markdownを活用することで、コンテンツ作成プロセスを大幅に効率化しました。
