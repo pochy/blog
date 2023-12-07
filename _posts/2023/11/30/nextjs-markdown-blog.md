@@ -1,7 +1,7 @@
 ---
 title: Next.js で Markdown を使用したブログを作成
 createdAt: 2023-11-30T00:00:45.855
-updatedAt: 2023-12-05T23:13:18.250
+updatedAt: 2023-12-07T13:21:13.446
 description: Next.js で Markdown を使用したブログを作成を作成しました。
 coverImage: /assets/blog/nextjs-markdown-blog.png
 draft: true
@@ -73,6 +73,251 @@ https://github.com/pochy/blog
 ### シンタックスハイライト
 
 - **[react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)**: コードブロックにシンタックスハイライトを適用し、記事の読みやすさを向上させます。
+
+## プロジェクトの作成
+
+`npx create-next-app@latest` コマンドで Next.js のプロジェクトを作成します。
+
+
+コマンド実行時に質問を聞かれますが、ここでは全部 **Yes** にしています。
+
+```bash
+$ npx create-next-app@latest blog
+✔ Would you like to use TypeScript? … No / Yes
+✔ Would you like to use ESLint? … No / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like to use `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to customize the default import alias (@/*)? … No / Yes
+Creating a new Next.js app in ~/blog.
+
+Using npm.
+
+Initializing project with template: app-tw
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- autoprefixer
+- postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+
+
+added 333 packages, and audited 334 packages in 13s
+
+117 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Initialized a git repository.
+
+Success! Created blog at ~/blog
+```
+
+## 初期状態の Next.js プロジェクトの起動確認
+
+作成されたディレクトリに移動して `npm run dev` コマンドで開発モードとして実行できます。
+
+```bash
+$ cd blog
+$ npm run dev
+
+> blog@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.3
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 4s
+```
+
+ブラウザで `http://localhost:3000` を開くと初期状態の画面が表示されます。
+
+![npm run dev](npm-run-dev.png)
+
+## Markdown の表示
+
+Markdown ファイルは `_posts` ディレクトリ以下に格納します。
+
+```bash
+$ mkdir -p _posts
+$ touch _posts/test.md
+```
+
+```markdown:test.md
+---
+title: Hello, World!
+createdAt: 2023-11-30T00:00:45.855
+updatedAt: 2023-11-35T13:13:18.250
+---
+
+# Hello, World!
+
+サンプルテキスト
+
+- リスト1
+- リスト2
+
+**太字**
+
+~~取り消し線~~
+```
+
+必要なライブラリのインストール
+
+```bash
+$ npm install react-markdown gray-matter
+
+added 88 packages, and audited 422 packages in 6s
+
+184 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+```
+
+### Markdownファイルの読み込みとパース
+
+`_posts` ディレクトリ以下から Markdown ファイルを読み込んで `gray-matter` を使用してパースします。
+
+```ts:utils/posts.ts
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export type PostMeta = {
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type Post = PostMeta & {
+  id: string;
+  filePath: string;
+  content: string;
+};
+
+const postsDirectory = path.join(process.cwd(), "_posts");
+
+export function getPostFilePaths(
+  dir = postsDirectory,
+  filePaths: string[] = [],
+) {
+  const files = fs.readdirSync(dir);
+
+  files.forEach((file) => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      getPostFilePaths(filePath, filePaths);
+    } else if (stat.isFile() && /\.md$/.test(filePath)) {
+      filePaths.push(filePath);
+    }
+  });
+
+  return filePaths;
+}
+
+export function getAllPosts() {
+  const postFilePaths = getPostFilePaths();
+  const allPostsData = postFilePaths.map((filePath) => {
+    const id = path.basename(filePath, ".md");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    const post: Post = {
+      id,
+      filePath: filePath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
+      content,
+      ...(data as PostMeta),
+    };
+    return post;
+  });
+  return allPostsData;
+}
+```
+
+### globals.cssの変更
+
+初期状態で入ってるスタイルは使わないため削除し、先頭3行の `Tailwind` の部分のみ残します。
+
+```css:globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+
+### トップページの修正
+
+トップページに `getAllPosts` で取得した Markdown の内容を表示します。
+表示には `react-markdown` を使用します。
+
+```tsx:app/page.tsx
+import { getAllPosts } from "@/utils/posts";
+import ReactMarkdown from "react-markdown";
+
+export default function Home() {
+  const posts = getAllPosts();
+  return (
+    <div className="bg-gray-100">
+      <div className="container mt-10 pb-10 mx-auto px-0 sm:px-4 max-w-4xl">
+        {posts.map((post) => (
+          <div key={post.id} className="mx-auto p-4 bg-white rounded-lg">
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+ブラウザで再度トップページを確認します。
+Markdownの内容が表示されている事を確認します。
+
+![React Markdown](react-markdown.png)
+
+### @tailwindcss/typography の適用
+
+このままでは特にスタイルが適用されていないため、一旦 `@tailwindcss/typography` を使用します。
+
+```bash
+$ npm install @tailwindcss/typography
+```
+
+```ts:tailwind.config.ts
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  plugins: [require("@tailwindcss/typography")],
+};
+export default config;
+```
+
+```diff:app/page.tsx
+- <ReactMarkdown>
++ <ReactMarkdown className="prose prose-sky mx-auto max-w-4xl">
+```
+
+![Styled Markdown](styled-react-markdown.png)
+
+スタイルが適用されました。
 
 ## その他検討したライブラリなど
 
