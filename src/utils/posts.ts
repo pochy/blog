@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { Article, Post } from "@/types";
+import { Post, PostMeta } from "@/types";
 
 const postsDirectory = path.join(process.cwd(), "_posts");
 
@@ -44,13 +44,13 @@ export function getPostById(id: string) {
   const fileContents = fs.readFileSync(postPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const article: Article = {
+  const post: Post = {
     id: id,
     filePath: postPath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
     content,
-    ...(data as Post),
+    ...(data as PostMeta),
   };
-  return article;
+  return post;
 }
 
 export function getAllPosts() {
@@ -60,11 +60,11 @@ export function getAllPosts() {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
-    const article: Article = {
+    const article: Post = {
       id: id,
       filePath: filePath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
       content,
-      ...(data as Post),
+      ...(data as PostMeta),
     };
     return article;
   });
@@ -79,7 +79,7 @@ export function slicedAllPosts(current_page = 1) {
   return slicedPosts(posts, current_page);
 }
 
-export function slicedPosts(posts: Article[], current_page: number) {
+export function slicedPosts(posts: Post[], current_page: number) {
   const pages = range(1, Math.ceil(posts.length / PAGE_SIZE));
 
   const articles = posts.slice(

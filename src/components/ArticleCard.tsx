@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Article } from "@/types";
+import { Post } from "@/types";
 import NextLink from "next/link";
 import Markdown from "./Markdown";
 import { basePath } from "../../next.config";
@@ -9,7 +9,7 @@ import Tag from "@/components/ui/tag";
 import Category from "./ui/category";
 const BASE_PATH = basePath ? basePath : "";
 
-export default function ArticleCard({ article }: { article: Article }) {
+export default function ArticleCard({ article }: { article: Post }) {
   const formattedDate = formatDate(article.createdAt);
   const updatedAt = formatDate(article.updatedAt);
   const tags = article.tags || [];

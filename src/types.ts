@@ -1,4 +1,4 @@
-export type Post = {
+export type PostMeta = {
   title: string;
   // content: string;
   slug: string;
@@ -8,22 +8,13 @@ export type Post = {
   coverImage?: string;
   tags: string[];
   categories: string[];
-  author: {
-    name: string;
-    picture: string;
-  };
   ogImage: {
     url: string;
   };
 };
 
-export type Article = Post & {
+export type Post = PostMeta & {
   filePath: string;
   id: string;
   content: string;
-};
-
-export type Author = {
-  name: string;
-  avatarUrl: string;
 };

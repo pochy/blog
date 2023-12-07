@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
-import { Article } from "@/types";
+import { Post } from "@/types";
 import { ClockIcon, CounterClockwiseClockIcon } from "@radix-ui/react-icons";
 import { basePath } from "../../../../next.config";
 import { formatDate } from "@/utils/dateUtils";
@@ -11,7 +11,7 @@ const BASE_PATH = basePath ? basePath : "";
 export default function ArticleContent({
   article,
 }: {
-  article: Article;
+  article: Post;
   slug: string;
 }) {
   const formattedDate = formatDate(article.createdAt);
