@@ -12,6 +12,7 @@ import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import shell from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
 import schema from "react-syntax-highlighter/dist/cjs/languages/prism/scheme";
+import diff from "react-syntax-highlighter/dist/cjs/languages/prism/diff";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -38,6 +39,7 @@ SyntaxHighlighter.registerLanguage("sh", bash);
 SyntaxHighlighter.registerLanguage("bash", bash);
 SyntaxHighlighter.registerLanguage("shell", shell);
 SyntaxHighlighter.registerLanguage("schema", schema);
+SyntaxHighlighter.registerLanguage("diff", diff);
 
 type MarkdownProps = {
   filePath: string;
