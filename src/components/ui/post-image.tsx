@@ -2,13 +2,22 @@
 /* eslint-disable react/display-name */
 import { ImageProps } from "next/image";
 import React from "react";
+import { ExtraProps } from "react-markdown";
 
 const PostImage =
   (slug: string) =>
-  ({ src = "", alt = "alt", title = "title" }) => {
-    if (src.match(/https/)) {
+  ({
+    src,
+    alt = "alt",
+    title = "title",
+    ...props
+  }: React.ClassAttributes<HTMLImageElement> &
+    React.ImgHTMLAttributes<HTMLImageElement> &
+    ExtraProps) => {
+    const srcString = typeof src === "string" ? src : src?.toString() || "";
+    if (srcString.match(/https/)) {
       // eslint-disable-next-line @next/next/no-img-element
-      return <img src={src} alt={alt} title={title} />;
+      return <img src={srcString} alt={alt} title={title} {...props} />;
     }
     // console.log("Post Image", src, slug);
     try {
@@ -18,7 +27,7 @@ const PostImage =
       const image: ImageProps = require("../../../_posts/" +
         slug.split("/").slice(0, -1).join("/") +
         "/" +
-        src).default;
+        srcString).default;
       // console.log("Image", image);
       return (
         <img
@@ -26,11 +35,12 @@ const PostImage =
           alt={alt}
           title={title}
           className="next-image"
+          {...props}
         />
       );
     } catch (e) {
       // eslint-disable-next-line @next/next/no-img-element
-      return <img src={src} alt={alt} title={title} />;
+      return <img src={srcString} alt={alt} title={title} {...props} />;
     }
   };
 export default PostImage;
