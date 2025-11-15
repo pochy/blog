@@ -70,7 +70,10 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
       );
     }
 
-    const childProps = ("props" in children ? children.props : {}) as { className?: string; children?: React.ReactNode };
+    const childProps = ("props" in children ? children.props : {}) as {
+      className?: string;
+      children?: React.ReactNode;
+    };
     const { className, children: code } = childProps;
     const classList = className ? className.split(":") : [];
     const language = classList[0]?.replace("language-", "");
@@ -118,17 +121,18 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
   // );
 
   return (
-    <ReactMarkdown
-      className="prose prose-sky mx-auto max-w-4xl"
-      components={{
-        pre: Pre,
-        img: PostImage(filePath),
-      }}
-      remarkPlugins={[remarkGfm, remarkMath, remarkEmoji, remarkToc]}
-      rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeKatex, rehypeSlug]}
-    >
-      {children}
-    </ReactMarkdown>
+    <div className="prose prose-sky mx-auto max-w-4xl">
+      <ReactMarkdown
+        components={{
+          pre: Pre,
+          img: PostImage(filePath),
+        }}
+        remarkPlugins={[remarkGfm, remarkMath, remarkEmoji, remarkToc]}
+        rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeKatex, rehypeSlug]}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
   );
 
   // const MarkdownComponents: object = {
