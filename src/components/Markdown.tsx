@@ -70,7 +70,7 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
       );
     }
 
-    const childProps = "props" in children ? children.props : {};
+    const childProps = ("props" in children ? children.props : {}) as { className?: string; children?: React.ReactNode };
     const { className, children: code } = childProps;
     const classList = className ? className.split(":") : [];
     const language = classList[0]?.replace("language-", "");

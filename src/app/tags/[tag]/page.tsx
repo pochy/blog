@@ -10,21 +10,22 @@ export async function generateStaticParams() {
 export default async function TagsList({
   params,
 }: {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 }) {
+  const { tag } = await params;
   const current_page = 1;
-  const { pages, articles } = slicedArticlesByTag(params.tag, current_page);
+  const { pages, articles } = slicedArticlesByTag(tag, current_page);
 
   return (
     <main className="container mt-10 pb-10 mx-auto px-4 max-w-4xl">
       <div className="mx-auto mb-10 max-w-2xl lg:mx-0">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          # {params.tag} 一覧
+          # {tag} 一覧
         </h1>
       </div>
       <ArticleList articles={articles} />
       <Pagination
-        path={`tags/${params.tag}`}
+        path={`tags/${tag}`}
         pages={pages}
         current_page={current_page}
       />

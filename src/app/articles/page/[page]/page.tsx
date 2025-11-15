@@ -12,8 +12,9 @@ export async function generateStaticParams() {
   return slugs;
 }
 
-export default function Articles({ params }: { params: { page: string } }) {
-  const current_page = Number(params.page || "1");
+export default async function Articles({ params }: { params: Promise<{ page: string }> }) {
+  const { page } = await params;
+  const current_page = Number(page || "1");
 
   const { pages, articles } = slicedAllPosts(current_page);
   if (!articles) {

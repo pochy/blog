@@ -6,9 +6,10 @@ import { getAllPosts, getPostById } from "@/utils/posts";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
-  const slug = params.slug.join("/");
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join("/");
   const article = getPostById(slug);
   return {
     title: article?.title,
@@ -27,9 +28,10 @@ export async function generateStaticParams() {
 export default async function ArticleDetail({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 }) {
-  const slug = params.slug.join("/");
+  const { slug: slugArray } = await params;
+  const slug = slugArray.join("/");
   const article = getPostById(slug);
   if (!article) {
     notFound();
