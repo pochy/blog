@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
   turbopack: {
     rules: {
       // Markdown を文字列として読み込む例
