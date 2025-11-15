@@ -4,7 +4,7 @@ createdAt: 2023-12-02T02:42:28.213Z
 updatedAt: 2023-12-02T02:42:28.772Z
 description: Next.js 14 で安定版になった Server Actions を試してみました。
 coverImage: /assets/blog/nextjs-markdown-blog.png
-draft: false
+draft: true
 tags:
   - next.js
 categories:
@@ -85,7 +85,7 @@ added 2 packages, and audited 335 packages in 2s
 found 0 vulnerabilities
 ```
 
-## PrismaをSQLiteデータベースと共に使用するための初期セットアップ
+## Prisma を SQLite データベースと共に使用するための初期セットアップ
 
 ```bash
 $ npx prisma init --datasource-provider sqlite
@@ -103,7 +103,8 @@ Next steps:
 More information in our documentation:
 https://pris.ly/d/getting-started
 ```
-schema.prisma ファイルにデータモデルを定義します。以下に、単純なTodoモデルの例を示します。
+
+schema.prisma ファイルにデータモデルを定義します。以下に、単純な Todo モデルの例を示します。
 
 ```bash
 // This is your Prisma schema file,
@@ -125,8 +126,7 @@ model Todo {
 }
 ```
 
-このコマンドは、Prismaのスキーマファイルに定義されたモデルと構造を、指定されたデータベースに直接適用します。主に、開発環境のデータベースに対してデータベーススキーマの変更を迅速に反映させるために使用されます。
-
+このコマンドは、Prisma のスキーマファイルに定義されたモデルと構造を、指定されたデータベースに直接適用します。主に、開発環境のデータベースに対してデータベーススキーマの変更を迅速に反映させるために使用されます。
 
 ```bash
 $ npx prisma db push
@@ -152,7 +152,7 @@ found 0 vulnerabilities
 
 ## Prisma Studio からのデータベース接続
 
-Prisma Studioは、Prismaを使用する開発者向けのGUIツールです。このツールは、Prisma Schema（schema.prisma）に基づいてデータベースのデータを視覚的に閲覧し、編集することができます。Prisma Studioは、データベースのテーブル、レコード、および関係を直感的に理解し、操作することを可能にします。
+Prisma Studio は、Prisma を使用する開発者向けの GUI ツールです。このツールは、Prisma Schema（schema.prisma）に基づいてデータベースのデータを視覚的に閲覧し、編集することができます。Prisma Studio は、データベースのテーブル、レコード、および関係を直感的に理解し、操作することを可能にします。
 
 ```bash
 $ npx prisma studio
@@ -160,6 +160,5 @@ Environment variables loaded from .env
 Prisma schema loaded from prisma/schema.prisma
 Prisma Studio is up on http://localhost:5555
 ```
-
 
 ![Alt text](prisma_studio.png)

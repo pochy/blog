@@ -4,7 +4,7 @@ createdAt: 2023-12-11T20:47:47.935
 updatedAt: 2023-12-11T20:41:57.852
 description: Blenderで作成した3Dモデルを Three.js で表示する方法についてまとめました。
 coverImage: /assets/blog/threejs-blender.png
-draft: false
+draft: true
 tags:
   - three.js
 categories:

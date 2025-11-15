@@ -4,7 +4,7 @@ createdAt: 2023-11-30T00:00:45.855
 updatedAt: 2023-12-07T13:21:13.446
 description: Next.js で Markdown を使用したブログを作成を作成しました。
 coverImage: /assets/blog/nextjs-markdown-blog.png
-draft: true
+draft: false
 tags:
   - next.js
   - markdown
@@ -25,7 +25,7 @@ slug: nextjs-markdown-blog
 こんにちは！インプットした内容をまとめるためにブログを始めました。
 
 Next.js、TypeScript、そしていくつかのライブラリを使って Markdown を活用したブログを作成しました。
-Github Pagesでホストしてカスタムドメインを割り当てています。
+Github Pages でホストしてカスタムドメインを割り当てています。
 
 実際のソースコードはこちらです。
 https://github.com/pochy/blog
@@ -35,15 +35,15 @@ https://github.com/pochy/blog
 このブログは執筆時点で Next.js 14.0.3 上に App Router を用いて構築しています。最初は Pages Router にしていましたが、学習も兼ねているので新しく登場した App Router に途中で切り替えました。
 
 - **[Next.js](https://nextjs.org/)**: このプロジェクトの基盤となるフレームワークです。Next.js の App Router を活用して、ルーティングを簡単かつ効率的に管理しています。
-- **[TypeScript](https://www.typescriptlang.org/)**: JavaScriptのスーパーセットとして、型安全性と開発効率の向上をもたらします。
+- **[TypeScript](https://www.typescriptlang.org/)**: JavaScript のスーパーセットとして、型安全性と開発効率の向上をもたらします。
 
 ## デザインライブラリ
 
 デザインに関しては、以下のライブラリを採用しています：
 
-- **[Tailwind CSS](https://tailwindcss.com/)**: 効率的なスタイリングを可能にするユーティリティファーストのCSSフレームワークです。このフレームワークを使用することで、迅速にレスポンシブなデザインを実装できます。
-- **[shadcn/ui](https://ui.shadcn.com/)**: 現代的なUIコンポーネントを提供し、簡単に美しいインターフェースを構築できます。
-- **[Radix UI](https://www.radix-ui.com/)**: アクセシビリティに優れた低レベルのUIコンポーネントを提供します。このライブラリはカスタマイズが容易で、デザインシステムに簡単に統合できます。
+- **[Tailwind CSS](https://tailwindcss.com/)**: 効率的なスタイリングを可能にするユーティリティファーストの CSS フレームワークです。このフレームワークを使用することで、迅速にレスポンシブなデザインを実装できます。
+- **[shadcn/ui](https://ui.shadcn.com/)**: 現代的な UI コンポーネントを提供し、簡単に美しいインターフェースを構築できます。
+- **[Radix UI](https://www.radix-ui.com/)**: アクセシビリティに優れた低レベルの UI コンポーネントを提供します。このライブラリはカスタマイズが容易で、デザインシステムに簡単に統合できます。
 
 ## アイコン
 
@@ -54,17 +54,17 @@ https://github.com/pochy/blog
 
 このプロジェクトでは、以下のライブラリを使用しています：
 
-- **[react-markdown](https://github.com/remarkjs/react-markdown)**: MarkdownをReactコンポーネントに変換します。これにより、記事の内容をMarkdownで簡単に記述し、動的にレンダリングできます。
-- **[remark-gfm](https://github.com/remarkjs/remark-gfm)**: GitHub Flavored Markdownをサポートし、拡張機能やカスタムレンダリングを可能にします。
-- **[remark-math](https://github.com/remarkjs/remark-math)** と **[rehype-katex](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)**: 数学的表現をMarkdown内で簡単に記述し、方程式のレンダリングに役立ちます。
+- **[react-markdown](https://github.com/remarkjs/react-markdown)**: Markdown を React コンポーネントに変換します。これにより、記事の内容を Markdown で簡単に記述し、動的にレンダリングできます。
+- **[remark-gfm](https://github.com/remarkjs/remark-gfm)**: GitHub Flavored Markdown をサポートし、拡張機能やカスタムレンダリングを可能にします。
+- **[remark-math](https://github.com/remarkjs/remark-math)** と **[rehype-katex](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)**: 数学的表現を Markdown 内で簡単に記述し、方程式のレンダリングに役立ちます。
 - **[remark-emoji](https://github.com/rhysd/remark-emoji)**: 文章に絵文字を簡単に追加できます。
 - **[remark-toc](https://github.com/remarkjs/remark-toc)**: 記事に自動的に目次を生成します。
-- **[rehype-raw](https://github.com/rehypejs/rehype-raw)** と **[rehype-sanitize](https://github.com/rehypejs/rehype-sanitize)**: 生のHTMLのレンダリングとサニタイズを行います。
-- **[rehype-slug](https://github.com/rehypejs/rehype-slug)**: 見出しにスラッグ（URLフレンドリーな識別子）を付与します。
-- **[mermaid](https://github.com/mermaid-js/mermaid)**: 複雑な図やフローチャートをMarkdownで記述できます。
+- **[rehype-raw](https://github.com/rehypejs/rehype-raw)** と **[rehype-sanitize](https://github.com/rehypejs/rehype-sanitize)**: 生の HTML のレンダリングとサニタイズを行います。
+- **[rehype-slug](https://github.com/rehypejs/rehype-slug)**: 見出しにスラッグ（URL フレンドリーな識別子）を付与します。
+- **[mermaid](https://github.com/mermaid-js/mermaid)**: 複雑な図やフローチャートを Markdown で記述できます。
 - **[gray-matter](https://github.com/jonschlinkert/gray-matter)**: フロントマターを解析し、メタデータを簡単に扱えます。
 - **[clsx](https://github.com/lukeed/clsx)**: 条件付きでクラス名を結合し、より読みやすいコードを記述できます。
-- **[feed](https://github.com/jpmonette/feed)**: RSSフィードを作成する。
+- **[feed](https://github.com/jpmonette/feed)**: RSS フィードを作成する。
 
 ### 図やフローチャート
 
@@ -77,7 +77,6 @@ https://github.com/pochy/blog
 ## プロジェクトの作成
 
 `npx create-next-app@latest` コマンドで Next.js のプロジェクトを作成します。
-
 
 コマンド実行時に質問を聞かれますが、ここでは全部 **Yes** にしています。
 
@@ -185,7 +184,7 @@ added 88 packages, and audited 422 packages in 6s
 found 0 vulnerabilities
 ```
 
-### Markdownファイルの読み込みとパース
+### Markdown ファイルの読み込みとパース
 
 `_posts` ディレクトリ以下から Markdown ファイルを読み込んで `gray-matter` を使用してパースします。
 
@@ -247,16 +246,15 @@ export function getAllPosts() {
 }
 ```
 
-### globals.cssの変更
+### globals.css の変更
 
-初期状態で入ってるスタイルは使わないため削除し、先頭3行の `Tailwind` の部分のみ残します。
+初期状態で入ってるスタイルは使わないため削除し、先頭 3 行の `Tailwind` の部分のみ残します。
 
 ```css:globals.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
-
 
 ### トップページの修正
 
@@ -284,7 +282,7 @@ export default function Home() {
 ```
 
 ブラウザで再度トップページを確認します。
-Markdownの内容が表示されている事を確認します。
+Markdown の内容が表示されている事を確認します。
 
 ![React Markdown](react-markdown.png)
 
@@ -329,12 +327,12 @@ export default config;
 
 ## 参考にしたサイト
 
-- [Next.jsを利用した初めての本格的Markdownブログサイトの構築 | アールエフェクト](https://reffect.co.jp/react/nextjs-markdown-blog/)
-- [女医が教える本当に気持ちのいい Markdown 変換処理【Next.js編】](https://zenn.dev/yoshiishunichi/articles/667120b3d0c9d2)
+- [Next.js を利用した初めての本格的 Markdown ブログサイトの構築 | アールエフェクト](https://reffect.co.jp/react/nextjs-markdown-blog/)
+- [女医が教える本当に気持ちのいい Markdown 変換処理【Next.js 編】](https://zenn.dev/yoshiishunichi/articles/667120b3d0c9d2)
 - [Next.js 13 app directory で記事投稿サイトを作ってみよう](https://zenn.dev/azukiazusa/articles/next-js-app-dir-tutorial)
 
 ## まとめ
 
-このブログの作成は Next.js と TypeScript と、Markdownに関するライブラリを使って技術的な知識を深める素晴らしい経験でした。デザインライブラリの Radix UI、Tailwind CSS、shadcn/ui の組み合わせは、とても心地よくこれからも積極的に採用していきたいと思います。
+このブログの作成は Next.js と TypeScript と、Markdown に関するライブラリを使って技術的な知識を深める素晴らしい経験でした。デザインライブラリの Radix UI、Tailwind CSS、shadcn/ui の組み合わせは、とても心地よくこれからも積極的に採用していきたいと思います。
 
-また、Markdownを活用することで、コンテンツ作成プロセスを大幅に効率化しました。
+また、Markdown を活用することで、コンテンツ作成プロセスを大幅に効率化しました。
