@@ -2,6 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  // next export（output: 'export'）は サーバーを持たない静的サイト を生成します。
+  // 一方、next/image の最適化 API は サーバーが必要 です。
+  // そのため、この2つは同時に使えません。
+  images: {
+    unoptimized: true,
+  },
   // GitHub Pages用のbasePath設定
   // リポジトリ名がURLに含まれる場合（例: username.github.io/repository-name）
   // GITHUB_REPOSITORY環境変数から自動的に取得

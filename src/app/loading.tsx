@@ -31,7 +31,7 @@ export function SkeletonCard() {
         </span>
       </div>
       <div className="group relative">
-        <Skeleton className="h-[400px] w-[100%]" />
+        <Skeleton className="h-[400px] w-full" />
         <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
           <Skeleton className="h-4 w-[250px]" />
         </h3>
