@@ -55,19 +55,31 @@ export function getPostById(id: string) {
 
 export function getAllPosts() {
   const postFilePaths = getPostFilePaths();
-  const allPostsData = postFilePaths.map((filePath) => {
-    const id = path.basename(filePath, ".md");
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data, content } = matter(fileContents);
+  const allPostsData = postFilePaths
+    .map((filePath) => {
+      const id = path.basename(filePath, ".md");
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      const { data, content } = matter(fileContents);
 
-    const article: Post = {
-      id: id,
-      filePath: filePath.replace(/\.md$/, "").replace(postsDirectory + "/", ""),
-      content,
-      ...(data as PostMeta),
-    };
-    return article;
-  });
+      const article: Post = {
+        id: id,
+        filePath: filePath
+          .replace(/\.md$/, "")
+          .replace(postsDirectory + "/", ""),
+        content,
+        ...(data as PostMeta),
+      };
+      return article;
+    })
+    .filter((article) => {
+      // draft: trueの記事を除外
+      const draft = (article as any).draft;
+      return !draft;
+    })
+    .filter((article, index, self) => {
+      // 同じslugを持つ記事の重複を除外（最初に見つかったもののみ残す）
+      return index === self.findIndex((a) => a.slug === article.slug);
+    });
   return allPostsData;
 }
 
