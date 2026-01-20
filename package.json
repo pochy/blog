@@ -9,7 +9,7 @@
     "build": "next build",
     "prebuild": "tsx scripts/before.ts",
     "start": "next start",
-    "startprod": "npx serve@latest out",
+    "startprod": "pnpm dlx serve@latest out",
     "lint": "next lint"
   },
   "dependencies": {
