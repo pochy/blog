@@ -90,7 +90,7 @@
       "path": "[[workspace]]/_posts/{{year}}/{{month}}/{{day}}"
     }
   ],
-  "frontMatter.git.enabled": true,
+  "frontMatter.git.enabled": false,
   "frontMatter.website.host": "https://www.kinacoo.com/blog/",
   "frontMatter.framework.startCommand": "pnpm dev"
 }
