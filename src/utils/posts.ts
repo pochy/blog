@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { cache } from "react";
 import { Post, PostMeta } from "@/types";
 
 const postsDirectory = path.join(process.cwd(), "_posts");
@@ -9,14 +10,7 @@ export const PAGE_SIZE = 2;
 export const range = (start: number, end: number, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i);
 
-export function getPosts() {
-  return fs.readdirSync(postsDirectory);
-}
-
-export function getPostFilePaths(
-  dir = postsDirectory,
-  filePaths: string[] = []
-) {
+const collectPostFilePaths = (dir: string, filePaths: string[]) => {
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {
@@ -24,16 +18,23 @@ export function getPostFilePaths(
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
-      getPostFilePaths(filePath, filePaths);
+      collectPostFilePaths(filePath, filePaths);
     } else if (stat.isFile() && /\.md$/.test(filePath)) {
       filePaths.push(filePath);
     }
   });
+};
 
+export const getPosts = cache(() => fs.readdirSync(postsDirectory));
+
+export const getPostFilePaths = cache((dir?: string) => {
+  const baseDir = dir ?? postsDirectory;
+  const filePaths: string[] = [];
+  collectPostFilePaths(baseDir, filePaths);
   return filePaths;
-}
+});
 
-export function getPostById(id: string) {
+export const getPostById = cache((id: string) => {
   const postFilePaths = getPostFilePaths();
   const postPath = postFilePaths.find((filePath) => filePath.includes(id));
 
@@ -51,9 +52,9 @@ export function getPostById(id: string) {
     ...(data as PostMeta),
   };
   return post;
-}
+});
 
-export function getAllPosts() {
+export const getAllPosts = cache(() => {
   const postFilePaths = getPostFilePaths();
   const allPostsData = postFilePaths
     .map((filePath) => {
@@ -81,15 +82,15 @@ export function getAllPosts() {
       return index === self.findIndex((a) => a.slug === article.slug);
     });
   return allPostsData;
-}
+});
 
-export function slicedAllPosts(current_page = 1) {
-  const posts = getAllPosts();
+export const slicedAllPosts = cache((current_page = 1) => {
+  const posts = [...getAllPosts()];
   posts.sort((a: any, b: any) => {
     return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
   });
   return slicedPosts(posts, current_page);
-}
+});
 
 export function slicedPosts(posts: Post[], current_page: number) {
   const pages = range(1, Math.ceil(posts.length / PAGE_SIZE));

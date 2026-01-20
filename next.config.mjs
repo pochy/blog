@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  // ⚠️ Cache Componentsは静的エクスポートモード（output: 'export'）では使用できません
+  // Cache Componentsはサーバーサイドの機能を必要とするため、静的サイトでは利用できません
+  // GitHub Pagesなどの静的ホスティングを使用している場合は、Cache Componentsを無効にする必要があります
+  // cacheComponents: true, // コメントアウト: 静的エクスポートでは使用不可
   // next export（output: 'export'）は サーバーを持たない静的サイト を生成します。
   // 一方、next/image の最適化 API は サーバーが必要 です。
   // そのため、この2つは同時に使えません。
