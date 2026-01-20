@@ -2,7 +2,7 @@
 import Markdown from "@/components/Markdown";
 import { Post } from "@/types";
 import { ClockIcon, CounterClockwiseClockIcon } from "@radix-ui/react-icons";
-import { basePath } from "../../../../next.config";
+import { basePath } from "../../../../next.config.mjs";
 import { formatDate } from "@/utils/dateUtils";
 import Tag from "@/components/ui/tag";
 import Category from "@/components/ui/category";

@@ -48,4 +48,5 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export const basePath = nextConfig.basePath;
+export default nextConfig;

@@ -10,20 +10,20 @@
     },
     "items": [
         {
-            "id": "https://www.kinacoo.com/blog/articles/nextjs-server-actions",
-            "url": "https://www.kinacoo.com/blog/articles/nextjs-server-actions",
-            "title": "Next.js で Server Actions を試してみる",
-            "summary": "Next.js 14 で安定版になった Server Actions を試してみました。",
-            "date_modified": "2023-12-02T02:42:28.213Z",
+            "id": "https://www.kinacoo.com/blog/articles/threejs-blender",
+            "content_html": "Blenderで作成した3Dモデルを Three.js で表示する方法についてまとめました。",
+            "url": "https://www.kinacoo.com/blog/articles/threejs-blender",
+            "title": "Blender で作成した3Dモデルを Three.js で表示する",
+            "date_modified": "2023-12-11T20:47:47.935Z",
             "tags": [
                 "develop"
             ]
         },
         {
             "id": "https://www.kinacoo.com/blog/articles/nextjs-markdown-blog",
+            "content_html": "Next.js で Markdown を使用したブログを作成を作成しました。",
             "url": "https://www.kinacoo.com/blog/articles/nextjs-markdown-blog",
             "title": "Next.js で Markdown を使用したブログを作成",
-            "summary": "Next.js で Markdown を使用したブログを作成を作成しました。",
             "date_modified": "2023-11-30T00:00:45.855Z",
             "tags": [
                 "develop"

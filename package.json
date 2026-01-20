@@ -2,10 +2,11 @@
   "name": "blog",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "ts-node --project tsconfig.build.json scripts/before.ts",
+    "prebuild": "tsx scripts/before.ts",
     "start": "next start",
     "startprod": "npx serve@latest out",
     "lint": "next lint"
@@ -21,10 +22,10 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.553.0",
     "mermaid": "^11.12.1",
-    "next": "16.0.3",
+    "next": "16.1.4",
     "raw-loader": "^4.0.2",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^16.1.0",
     "rehype-katex": "^7.0.1",
@@ -45,20 +46,22 @@
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.10.1",
-    "@types/react": "19.2.5",
+    "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "baseline-browser-mapping": "^2.9.15",
     "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.3",
-    "feed": "^5.1.0",
+    "eslint-config-next": "16.1.4",
+    "feed": "^5.2.0",
     "postcss": "^8",
     "tailwindcss": "^4.1.17",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "@types/react": "19.2.5",
+    "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3"
   }
 }

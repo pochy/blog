@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.kinacoo.com/blog</id>
     <title>kinacoo</title>
-    <updated>2023-12-05T15:04:52.567Z</updated>
+    <updated>2026-01-20T10:15:44.989Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>kenta nakajima</name>
@@ -13,13 +13,13 @@
     <link rel="self" href="https://www.kinacoo.com/blog/rss/atom.xml"/>
     <subtitle>dev blog</subtitle>
     <icon>https://www.kinacoo.com/blog/favicon.ico</icon>
-    <rights>All rights reserved 2023, kenta nakajima</rights>
+    <rights>All rights reserved 2026, kenta nakajima</rights>
     <entry>
-        <title type="html"><![CDATA[Next.js で Server Actions を試してみる]]></title>
-        <id>https://www.kinacoo.com/blog/articles/nextjs-server-actions</id>
-        <link href="https://www.kinacoo.com/blog/articles/nextjs-server-actions"/>
-        <updated>2023-12-02T02:42:28.213Z</updated>
-        <summary type="html"><![CDATA[Next.js 14 で安定版になった Server Actions を試してみました。]]></summary>
+        <title type="html"><![CDATA[Blender で作成した3Dモデルを Three.js で表示する]]></title>
+        <id>https://www.kinacoo.com/blog/articles/threejs-blender</id>
+        <link href="https://www.kinacoo.com/blog/articles/threejs-blender"/>
+        <updated>2023-12-11T20:47:47.935Z</updated>
+        <summary type="html"><![CDATA[Blenderで作成した3Dモデルを Three.js で表示する方法についてまとめました。]]></summary>
         <category label="develop"/>
     </entry>
     <entry>
