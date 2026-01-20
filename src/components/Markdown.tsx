@@ -24,6 +24,7 @@ import rehypeSlug from "rehype-slug";
 import "katex/dist/katex.min.css";
 import PostImage from "./ui/post-image";
 import dynamic from "next/dynamic";
+import AnimatedLink from "./ui/animated-link";
 import React from "react";
 
 // Dynamically import Mermaid to reduce initial bundle size
@@ -99,10 +100,10 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
           customStyle={
             fileName
               ? {
-                  marginTop: 0,
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                }
+                marginTop: 0,
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+              }
               : {}
           }
         >
@@ -131,6 +132,7 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
         components={{
           pre: Pre,
           img: PostImage(filePath),
+          a: AnimatedLink as any,
         }}
         remarkPlugins={[remarkGfm, remarkMath, remarkEmoji, remarkToc]}
         rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeKatex, rehypeSlug]}

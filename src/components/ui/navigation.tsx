@@ -1,4 +1,6 @@
+"use client";
 import NextLink from "next/link";
+import { motion } from "framer-motion";
 
 export default function Pagination({
   path = "articles",
@@ -15,11 +17,21 @@ export default function Pagination({
         <NextLink
           key={page}
           href={`/${path}/${page}`}
-          className={`px-4 py-2 border hover:bg-black hover:text-white ${
-            current_page === page && "bg-black text-white"
-          }`}
         >
-          {page}
+          <motion.div
+            className={`px-4 py-2 border ${
+              current_page === page ? "bg-black text-white" : ""
+            }`}
+            whileHover={{
+              backgroundColor: current_page === page ? "#000" : "#000",
+              color: "#fff",
+              scale: 1.05,
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            {page}
+          </motion.div>
         </NextLink>
       ))}
     </div>
