@@ -89,5 +89,8 @@
       "previewPath": "/articles/{{year}}/{{month}}/{{day}}",
       "path": "[[workspace]]/_posts/{{year}}/{{month}}/{{day}}"
     }
-  ]
+  ],
+  "frontMatter.git.enabled": true,
+  "frontMatter.website.host": "https://www.kinacoo.com/blog/",
+  "frontMatter.framework.startCommand": "pnpm dev"
 }
