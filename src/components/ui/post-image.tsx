@@ -17,7 +17,16 @@ const PostImage =
     const srcString = typeof src === "string" ? src : src?.toString() || "";
     if (srcString.match(/https/)) {
       // eslint-disable-next-line @next/next/no-img-element
-      return <img src={srcString} alt={alt} title={title} {...props} />;
+      return (
+        <img
+          src={srcString}
+          alt={alt}
+          title={title}
+          loading="lazy"
+          decoding="async"
+          {...props}
+        />
+      );
     }
     // console.log("Post Image", src, slug);
     try {
@@ -35,12 +44,23 @@ const PostImage =
           alt={alt}
           title={title}
           className="next-image"
+          loading="lazy"
+          decoding="async"
           {...props}
         />
       );
     } catch (e) {
       // eslint-disable-next-line @next/next/no-img-element
-      return <img src={srcString} alt={alt} title={title} {...props} />;
+      return (
+        <img
+          src={srcString}
+          alt={alt}
+          title={title}
+          loading="lazy"
+          decoding="async"
+          {...props}
+        />
+      );
     }
   };
 export default PostImage;
