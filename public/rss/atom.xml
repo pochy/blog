@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.kinacoo.com/blog</id>
     <title>kinacoo</title>
-    <updated>2026-01-20T10:15:44.989Z</updated>
+    <updated>2026-01-21T04:27:21.554Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>kenta nakajima</name>
@@ -15,19 +15,19 @@
     <icon>https://www.kinacoo.com/blog/favicon.ico</icon>
     <rights>All rights reserved 2026, kenta nakajima</rights>
     <entry>
+        <title type="html"><![CDATA[日記を始める]]></title>
+        <id>https://www.kinacoo.com/blog/articles/diary-note</id>
+        <link href="https://www.kinacoo.com/blog/articles/diary-note"/>
+        <updated>2026-01-20T11:18:49.727Z</updated>
+        <summary type="html"><![CDATA[最近物忘れが激しいのと、頭の中が整理できないので日記をちゃんと書こうと思ってまた初めてみる]]></summary>
+        <category label="diary"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Blender で作成した3Dモデルを Three.js で表示する]]></title>
         <id>https://www.kinacoo.com/blog/articles/threejs-blender</id>
         <link href="https://www.kinacoo.com/blog/articles/threejs-blender"/>
         <updated>2023-12-11T20:47:47.935Z</updated>
         <summary type="html"><![CDATA[Blenderで作成した3Dモデルを Three.js で表示する方法についてまとめました。]]></summary>
-        <category label="develop"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Next.js で Markdown を使用したブログを作成]]></title>
-        <id>https://www.kinacoo.com/blog/articles/nextjs-markdown-blog</id>
-        <link href="https://www.kinacoo.com/blog/articles/nextjs-markdown-blog"/>
-        <updated>2023-11-30T00:00:45.855Z</updated>
-        <summary type="html"><![CDATA[Next.js で Markdown を使用したブログを作成を作成しました。]]></summary>
         <category label="develop"/>
     </entry>
 </feed>

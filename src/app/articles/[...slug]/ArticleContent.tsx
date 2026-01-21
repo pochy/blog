@@ -58,6 +58,8 @@ export default function ArticleContent({
               src={`${BASE_PATH}${article.coverImage}`}
               alt={article.title}
               style={{ width: "fit-content" }}
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         )}

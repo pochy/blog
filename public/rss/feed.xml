@@ -4,25 +4,25 @@
         <title>kinacoo</title>
         <link>https://www.kinacoo.com/blog</link>
         <description>dev blog</description>
-        <lastBuildDate>Tue, 20 Jan 2026 10:15:44 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 21 Jan 2026 04:27:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
         <copyright>All rights reserved 2026, kenta nakajima</copyright>
+        <item>
+            <title><![CDATA[日記を始める]]></title>
+            <link>https://www.kinacoo.com/blog/articles/diary-note</link>
+            <guid isPermaLink="false">https://www.kinacoo.com/blog/articles/diary-note</guid>
+            <pubDate>Tue, 20 Jan 2026 11:18:49 GMT</pubDate>
+            <description><![CDATA[最近物忘れが激しいのと、頭の中が整理できないので日記をちゃんと書こうと思ってまた初めてみる]]></description>
+            <category>diary</category>
+        </item>
         <item>
             <title><![CDATA[Blender で作成した3Dモデルを Three.js で表示する]]></title>
             <link>https://www.kinacoo.com/blog/articles/threejs-blender</link>
             <guid isPermaLink="false">https://www.kinacoo.com/blog/articles/threejs-blender</guid>
             <pubDate>Mon, 11 Dec 2023 20:47:47 GMT</pubDate>
             <description><![CDATA[Blenderで作成した3Dモデルを Three.js で表示する方法についてまとめました。]]></description>
-            <category>develop</category>
-        </item>
-        <item>
-            <title><![CDATA[Next.js で Markdown を使用したブログを作成]]></title>
-            <link>https://www.kinacoo.com/blog/articles/nextjs-markdown-blog</link>
-            <guid isPermaLink="false">https://www.kinacoo.com/blog/articles/nextjs-markdown-blog</guid>
-            <pubDate>Thu, 30 Nov 2023 00:00:45 GMT</pubDate>
-            <description><![CDATA[Next.js で Markdown を使用したブログを作成を作成しました。]]></description>
             <category>develop</category>
         </item>
     </channel>

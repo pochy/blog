@@ -23,8 +23,13 @@ import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import "katex/dist/katex.min.css";
 import PostImage from "./ui/post-image";
-import { Mermaid } from "@/components/editor/Mermaid";
+import dynamic from "next/dynamic";
 import React from "react";
+
+// Dynamically import Mermaid to reduce initial bundle size
+const Mermaid = dynamic(() => import("@/components/editor/Mermaid").then(mod => ({ default: mod.Mermaid })), {
+  loading: () => <div className="text-gray-500 p-4">Loading diagram...</div>,
+});
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("ruby", ruby);

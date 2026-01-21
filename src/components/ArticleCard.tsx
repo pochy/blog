@@ -49,7 +49,12 @@ export default function ArticleCard({ article }: { article: Post }) {
       <div className="group relative">
         {article.coverImage && (
           <NextLink href={`/articles/${article.filePath}`}>
-            <img src={`${BASE_PATH}${article.coverImage}`} alt={article.title} />
+            <img
+              src={`${BASE_PATH}${article.coverImage}`}
+              alt={article.title}
+              loading="lazy"
+              decoding="async"
+            />
           </NextLink>
         )}
         <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
