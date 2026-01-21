@@ -87,7 +87,27 @@
       "title": "posts",
       "filePrefix": null,
       "previewPath": "/articles/{{year}}/{{month}}/{{day}}",
-      "path": "[[workspace]]/_posts/{{year}}/{{month}}/{{day}}"
+      "path": "[[workspace]]/_posts/2026/01/21"
+    },
+    {
+      "title": "20",
+      "path": "[[workspace]]/_posts/2026/01/20"
+    },
+    {
+      "title": "30",
+      "path": "[[workspace]]/_posts/2023/11/30"
+    },
+    {
+      "title": "02",
+      "path": "[[workspace]]/_posts/2023/12/02"
+    },
+    {
+      "title": "26",
+      "path": "[[workspace]]/_posts/2023/12/26"
+    },
+    {
+      "title": "11",
+      "path": "[[workspace]]/_posts/2023/12/11"
     }
   ],
   "frontMatter.git.enabled": false,
