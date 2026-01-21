@@ -21,7 +21,6 @@ export default function ArticleCard({ article }: { article: Post }) {
     <motion.article
       className="bg-white p-4 rounded-lg"
       whileHover={{
-        y: -4,
         boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.2)",
         transition: { duration: 0.2 }
       }}
