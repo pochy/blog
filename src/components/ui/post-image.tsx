@@ -4,6 +4,22 @@ import { ImageProps } from "next/image";
 import React from "react";
 import { ExtraProps } from "react-markdown";
 
+type RequireContext = {
+  (id: string): { default: ImageProps };
+};
+
+const postImages = (require as NodeRequire & {
+  context: (
+    directory: string,
+    useSubdirectories: boolean,
+    regExp: RegExp
+  ) => RequireContext;
+}).context(
+  "../../../_posts",
+  true,
+  /\.(png|jpe?g|gif|webp|avif|svg)$/
+);
+
 const PostImage =
   (slug: string) =>
   ({
@@ -30,13 +46,8 @@ const PostImage =
     }
     // console.log("Post Image", src, slug);
     try {
-      // const imgsrc =
-      //   "../../../_posts/" + slug.split("/").slice(0, -1).join("/") + "/" + src;
-      // console.log("Image", imgsrc);
-      const image: ImageProps = require("../../../_posts/" +
-        slug.split("/").slice(0, -1).join("/") +
-        "/" +
-        srcString).default;
+      const imagePath = "./" + slug.split("/").slice(0, -1).join("/") + "/" + srcString;
+      const image: ImageProps = postImages(imagePath).default;
       // console.log("Image", image);
       return (
         <img

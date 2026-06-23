@@ -26,30 +26,6 @@ const nextConfig = {
     : process.env.GITHUB_REPOSITORY
       ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}`
       : '',
-  turbopack: {
-    rules: {
-      // Markdown を文字列として読み込む例
-      '*.md': {
-        loaders: [
-          {
-            loader: 'raw-loader',
-            options: {},
-          }
-        ],
-        // `as` を指定して読み込まれるモジュールの拡張子を変えたい場合
-        as: '*.js',
-      },
-      '*.markdown': {
-        loaders: [
-          {
-            loader: 'raw-loader',
-            options: {},
-          }
-        ],
-        as: '*.js',
-      },
-    },
-  },
 };
 
 export const basePath = nextConfig.basePath;
