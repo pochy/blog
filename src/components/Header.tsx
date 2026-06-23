@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -23,12 +24,15 @@ export default function Header() {
           </li> */}
           <motion.li
             className="pr-2"
-            whileHover={{ scale: 1.1, color: "#000" }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
             <Link href="/tags">タグ</Link>
           </motion.li>
+          <li>
+            <ThemeToggle />
+          </li>
         </ul>
       </div>
     </header>

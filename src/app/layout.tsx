@@ -34,12 +34,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                const storageKey = "theme";
+                const storedTheme = localStorage.getItem(storageKey);
+                const theme = storedTheme === "light" || storedTheme === "dark"
+                  ? storedTheme
+                  : (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                document.documentElement.classList.toggle("dark", theme === "dark");
+                document.documentElement.style.colorScheme = theme;
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans text-foreground antialiased transition-colors",
           noto.className
         )}
-        style={{ backgroundColor: "#F5F5F5" }}
       >
         <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>

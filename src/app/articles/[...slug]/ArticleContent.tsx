@@ -20,13 +20,13 @@ export default function ArticleContent({
   const categories = article.categories || [];
   return (
     <div className="container mt-10 pb-10 mx-auto px-0 sm:px-4 max-w-4xl">
-      <article className="mx-auto p-4 bg-white rounded-lg">
+      <article className="mx-auto rounded-lg border border-border bg-card p-4 text-card-foreground transition-colors">
         <div className="flex items-center gap-x-4 mb-2">
           <span className="flex items-center gap-x-1">
             <ClockIcon />
             <time
               dateTime={toISODateTime(article.createdAt)}
-              className="text-gray-500"
+              className="text-muted-foreground"
             >
               {formattedDate}
             </time>
@@ -35,7 +35,7 @@ export default function ArticleContent({
             <CounterClockwiseClockIcon />
             <time
               dateTime={toISODateTime(article.updatedAt)}
-              className="text-gray-500"
+              className="text-muted-foreground"
             >
               {updatedAt}
             </time>
@@ -63,7 +63,7 @@ export default function ArticleContent({
             />
           </div>
         )}
-        <div className="mt-5 text-gray-600">
+        <div className="mt-5 text-muted-foreground">
           <Markdown filePath={article.filePath}>{article.content}</Markdown>
         </div>
       </article>

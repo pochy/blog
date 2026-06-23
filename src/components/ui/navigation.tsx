@@ -19,12 +19,10 @@ export default function Pagination({
           href={`/${path}/${page}`}
         >
           <motion.div
-            className={`px-4 py-2 border ${
-              current_page === page ? "bg-black text-white" : ""
+            className={`border border-border px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground ${
+              current_page === page ? "bg-primary text-primary-foreground" : "bg-card text-card-foreground"
             }`}
             whileHover={{
-              backgroundColor: current_page === page ? "#000" : "#000",
-              color: "#fff",
               scale: 1.05,
             }}
             whileTap={{ scale: 0.95 }}

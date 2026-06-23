@@ -19,7 +19,7 @@ export default function ArticleCard({ article }: { article: Post }) {
   const categories = article.categories || [];
   return (
     <motion.article
-      className="bg-white p-4 rounded-lg"
+      className="rounded-lg border border-border bg-card p-4 text-card-foreground transition-colors"
       whileHover={{
         boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.2)",
         transition: { duration: 0.2 }
@@ -30,7 +30,7 @@ export default function ArticleCard({ article }: { article: Post }) {
           <ClockIcon />
           <time
             dateTime={toISODateTime(article.createdAt)}
-            className="text-gray-500"
+            className="text-muted-foreground"
           >
             {formattedDate}
           </time>
@@ -39,7 +39,7 @@ export default function ArticleCard({ article }: { article: Post }) {
           <CounterClockwiseClockIcon />
           <time
             dateTime={toISODateTime(article.updatedAt)}
-            className="text-gray-500"
+            className="text-muted-foreground"
           >
             {updatedAt}
           </time>
@@ -73,7 +73,7 @@ export default function ArticleCard({ article }: { article: Post }) {
           </NextLink>
         )}
         <motion.h3
-          className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+          className="mt-3 text-lg font-semibold leading-6 text-card-foreground group-hover:text-muted-foreground"
           whileHover={{ x: 4 }}
           transition={{ duration: 0.2 }}
         >
@@ -86,7 +86,7 @@ export default function ArticleCard({ article }: { article: Post }) {
           </NextLink>
         </motion.h3>
 
-        <div className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+        <div className="mt-5 line-clamp-3 text-sm leading-6 text-muted-foreground">
           <Markdown filePath={article.filePath}>{article.description}</Markdown>
         </div>
       </div>

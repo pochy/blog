@@ -3,7 +3,7 @@ export default function CreatedAt({ createdAt }: { createdAt: string }) {
   return (
     <>
       <ClockIcon />
-      <time dateTime={createdAt} className="text-gray-500">
+      <time dateTime={createdAt} className="text-muted-foreground">
         {createdAt}
       </time>
     </>

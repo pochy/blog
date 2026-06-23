@@ -6,7 +6,7 @@ const BASE_PATH = basePath ? basePath : "";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100">
+    <footer className="bg-background text-muted-foreground transition-colors">
       <div className="max-w-4xl w-full mx-auto pb-4 flex items-center justify-center">
         <div>
           <div className="flex mb-4">

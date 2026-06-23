@@ -29,7 +29,7 @@ import React from "react";
 
 // Dynamically import Mermaid to reduce initial bundle size
 const Mermaid = dynamic(() => import("@/components/editor/Mermaid").then(mod => ({ default: mod.Mermaid })), {
-  loading: () => <div className="text-gray-500 p-4">Loading diagram...</div>,
+  loading: () => <div className="p-4 text-muted-foreground">Loading diagram...</div>,
 });
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
@@ -62,7 +62,7 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
     ExtraProps) => {
     if (!children || typeof children !== "object") {
       return (
-        <code {...props} className="rounded-md bg-stone-200 text-red-600">
+        <code {...props} className="rounded-md bg-muted text-destructive">
           {children}
         </code>
       );
@@ -70,7 +70,7 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
     const childType = "type" in children ? children.type : "";
     if (childType !== "code") {
       return (
-        <code {...props} className="rounded-md bg-stone-200 text-red-600">
+        <code {...props} className="rounded-md bg-muted text-destructive">
           {children}
         </code>
       );
@@ -127,7 +127,7 @@ const Markdown: FC<MarkdownProps> = ({ filePath, children }) => {
   // );
 
   return (
-    <div className="prose prose-sky mx-auto max-w-4xl">
+    <div className="prose prose-sky mx-auto max-w-4xl dark:prose-invert prose-a:no-underline">
       <ReactMarkdown
         components={{
           pre: Pre,

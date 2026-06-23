@@ -19,7 +19,7 @@ export default async function TagsList({
   return (
     <main className="container mt-10 pb-10 mx-auto px-4 max-w-4xl">
       <div className="mx-auto mb-10 max-w-2xl lg:mx-0">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           # {tag} 一覧
         </h1>
       </div>
