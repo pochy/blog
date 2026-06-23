@@ -1,4 +1,5 @@
-import { GithubIcon, Rss } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Rss } from "lucide-react";
 import Image from "next/image";
 import { basePath } from "../../next.config.mjs";
 const BASE_PATH = basePath ? basePath : "";
@@ -20,7 +21,7 @@ export default function Footer() {
               <span className="text-sm">Kenta Nakajima</span>
               <div className="flex mt-2">
                 <a href="https://github.com/pochy" target="_blank">
-                  <GithubIcon />
+                  <GitHubLogoIcon />
                 </a>
                 <a
                   href={`${BASE_PATH}/rss/feed.xml`}
