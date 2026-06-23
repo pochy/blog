@@ -17,18 +17,26 @@ export default function Footer() {
               alt="profile"
               className="w-20 h-20"
             />
-            <div className="flex flex-col justify-between pl-2">
+            <div className="flex flex-col justify-center gap-3 pl-3">
               <span className="text-sm">Kenta Nakajima</span>
-              <div className="flex mt-2">
-                <a href="https://github.com/pochy" target="_blank">
-                  <GitHubLogoIcon />
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/pochy"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="inline-flex h-6 w-6 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <GitHubLogoIcon className="h-5 w-5" />
                 </a>
                 <a
                   href={`${BASE_PATH}/rss/feed.xml`}
                   target="_blank"
-                  className="ml-2"
+                  rel="noreferrer"
+                  aria-label="RSS"
+                  className="inline-flex h-6 w-6 items-center justify-center"
                 >
-                  <Rss color="#f26522" />
+                  <Rss className="h-5 w-5 text-[#f26522]" />
                 </a>
               </div>
             </div>

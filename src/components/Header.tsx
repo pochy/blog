@@ -18,17 +18,18 @@ export default function Header() {
             </Link>
           </motion.li>
         </ul>
-        <ul className="flex">
+        <ul className="flex items-center gap-4">
           {/* <li className="pr-2">
             <Link href="/categories">カテゴリ</Link>
           </li> */}
           <motion.li
-            className="pr-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <Link href="/tags">タグ</Link>
+            <Link className="inline-flex h-9 items-center font-semibold" href="/tags">
+              タグ
+            </Link>
           </motion.li>
           <li>
             <ThemeToggle />
